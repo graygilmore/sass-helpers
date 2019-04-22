@@ -1,0 +1,11 @@
+@import 'true';
+@import '../../src/functions/aspect-ratio';
+
+@include describe('aspect-ratio [function]') {
+  @include it('returns a percentage-based aspect ratio') {
+    @include assert-equal(
+      aspect-ratio(100, 50),
+      50%
+    );
+  }
+}

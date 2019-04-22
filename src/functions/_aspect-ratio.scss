@@ -1,0 +1,15 @@
+/// Returns a percentage-based aspect ratio that can be used to size elements
+///
+/// @param {Integer} $width
+/// @param {Integer} $height
+///
+/// @example scss - Set the padding top of a hero image
+///   .page-hero {
+///     padding-top: aspect-ratio(1600, 900);
+///   }
+///
+/// @return {Number}
+///
+@function aspect-ratio($width, $height) {
+  @return percentage($height / $width);
+}
