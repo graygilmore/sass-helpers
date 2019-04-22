@@ -3,6 +3,7 @@
   "name": "sass-helpers",
   "version": "0.0.1",
   "devDependencies": {
+    "node-sass": "^4.11.0",
     "sass-true": "^4.0.0"
   }
 }
