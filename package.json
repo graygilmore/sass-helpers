@@ -1,0 +1,8 @@
+{
+  "author": "Gray Gilmore",
+  "name": "sass-helpers",
+  "version": "0.0.1",
+  "devDependencies": {
+    "sass-true": "^4.0.0"
+  }
+}
