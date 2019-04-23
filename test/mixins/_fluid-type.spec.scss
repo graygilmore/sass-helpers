@@ -1,0 +1,67 @@
+@import 'true';
+@import '../../src/mixins/fluid-type';
+
+@include describe('fluid-type [mixin]') {
+  @include it('adds fluid font sizing') {
+    @include assert {
+      @include output {
+        @include fluid-type(16px, 24px);
+      }
+
+      @include expect {
+        font-size: 16px;
+
+        @media screen and (min-width: 320px) {
+          font-size: calc(16px + 8 * (100vw - 320px) / 960);
+        }
+
+        @media screen and (min-width: 1280px) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  @include it('can options to change the min and max viewports') {
+    @include assert {
+      @include output {
+        @include fluid-type(16px, 24px, $vw-min: 400px, $vw-max: 1600px);
+      }
+
+      @include expect {
+        font-size: 16px;
+
+        @media screen and (min-width: 400px) {
+          font-size: calc(16px + 8 * (100vw - 400px) / 1200);
+        }
+
+        @media screen and (min-width: 1600px) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  @include it('can be applied to different properties') {
+    @include assert {
+      @include output {
+        @include fluid-type(16px, 24px, $properties: ('width', 'height'));
+      }
+
+      @include expect {
+        width: 16px;
+        height: 16px;
+
+        @media screen and (min-width: 320px) {
+          width: calc(16px + 8 * (100vw - 320px) / 960);
+          height: calc(16px + 8 * (100vw - 320px) / 960);
+        }
+
+        @media screen and (min-width: 1280px) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}
