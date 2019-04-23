@@ -1,0 +1,24 @@
+@import 'true';
+@import '../../src/mixins/trim-children';
+
+@include describe('trim-children [mixin]') {
+  @include it('removes the top and bottom margins from children') {
+    @include assert {
+      @include output {
+        .foo {
+          @include trim-children;
+        }
+      }
+
+      @include expect {
+        .foo > :first-child {
+          margin-top: 0;
+        }
+
+        .foo > :last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
